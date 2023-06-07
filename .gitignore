@@ -1,0 +1,9 @@
+*.exe
+*.json
+*.txt
+*.out
+*.gch
+.vscode
+.idea
+.DS_Store
+cmake-build-debug
