@@ -17,8 +17,10 @@ private:
 public:
     String():beg(nullptr), first_free(nullptr), cap(nullptr) {}
     String(const char *ps);
-    String(const String &s);
-    String &operator=(const String &s);
+    String(const String &s);    //拷贝构造函数
+    String(String &&s) noexcept;         //移动构造函数
+    String &operator=(const String &s);   //拷贝赋值运算符
+    String &operator=(String &&s) noexcept;        //移动赋值运算符
     ~String();
     void free();
     char *begin(){

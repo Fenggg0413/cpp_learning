@@ -74,13 +74,35 @@ String::String(const String &s)
     std::cout << "copy" << std::endl;
 }
 
-String &String::operator=(const String &s)
+String::String(String &&s) noexcept
+: beg(s.beg), first_free(s.first_free), cap(s.cap)
+{
+    std::cout << "move" << std::endl;
+    s.beg = s.first_free = s.cap = nullptr;
+}
+
+String &String::operator=(const String &s) 
 {
     auto pa = copy_String(s.beg, s.first_free);
     free();
     beg = pa.first;
     first_free = pa.second;
     cap = pa.second;
+    std::cout << "copy =" << std::endl;
+    return *this;
+}
+
+String &String::operator=(String &&s) noexcept
+{
+    if(this != &s) //检擦是否是自我赋值
+    {
+        free();   //释放掉等号左边的元素
+        beg = s.beg;
+        first_free = s.first_free;
+        cap = s.cap;
+        s.beg = s.first_free = s.cap = nullptr;
+    }
+    std::cout << "move =" << std::endl;
     return *this;
 }
 
