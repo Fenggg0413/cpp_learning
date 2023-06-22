@@ -9,7 +9,6 @@
 #include <sstream>
 #include <fstream>
 using namespace std;
-#endif
 class QueryResult
 {
     friend void printInfo(ostream &os, const QueryResult &qr);
@@ -36,3 +35,4 @@ public:
 };
 void runQueries(ifstream &input);
 void printInfo(ostream &os, const QueryResult &qr);
+#endif
