@@ -10,6 +10,10 @@ using std::string;
 using std::regex;
 using std::regex_error;
 
+#include <random>
+using std::default_random_engine;
+using std::uniform_int_distribution;
+
 void test1()
 {
     // for ex17.14
@@ -41,9 +45,17 @@ void test2()
     }
 }
 
+unsigned int myRandomInt(int s, size_t min, size_t max)
+{
+    default_random_engine e;
+    e.seed(s);
+    uniform_int_distribution<unsigned int> u(min, max);
+    return u(e);
+}
+
 int main()
 {
-    test1();
-    test2();
+    int tmp = myRandomInt(time(0), 0, 100);
+    cout << tmp << endl;
     return 0;
 }
