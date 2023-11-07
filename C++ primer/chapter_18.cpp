@@ -1,6 +1,7 @@
-#include<stdexcept>
+#include <stdexcept>
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
@@ -57,6 +58,8 @@ void test1()
     }
 }
 
+// 命名空间别名
+namespace sd = std;
 int main()
 {
     
