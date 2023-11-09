@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -58,10 +59,18 @@ void test1()
     }
 }
 
+void test2()
+{
+    random_device seed;
+    mt19937 gen(seed());
+    uniform_int_distribution<unsigned> dis(0, 9);
+    cout << dis(gen) << endl;
+}
+
 // 命名空间别名
 namespace sd = std;
 int main()
 {
-    
+    test2();
     return 0;
 }
