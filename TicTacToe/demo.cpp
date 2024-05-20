@@ -150,9 +150,9 @@ int main()
             int row, col;
             cout << "Enter your move (row and column): ";
             cin >> row >> col;
-            if (board[row][col] == NONE)
+            if (board[row-1][col-1] == NONE)
             {
-                board[row][col] = HUMAN;
+                board[row-1][col-1] = HUMAN;
                 currentPlayer = AI;
             }
             else
